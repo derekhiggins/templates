@@ -28,11 +28,17 @@ Parameters:
   NovaComputeDriver:
     Type: String
     Default: libvirt.LibvirtDriver
+  NovaApiHost:
+    Type: String
   GlanceHost:
     Type: String
   NovaComputeTemplate:
     Type: String
     Default: https://raw.github.com/SpamapS/templates/MERGE/nova-compute-instance.yaml
+  NovaDSN:
+    Type: String
+  QuantumDSN:
+    Type: String
 Resources:
   NovaCompute0:
     Type: AWS::CloudFormation::Stack
@@ -47,5 +53,8 @@ Resources:
       RabbitPassword: {Ref: RabbitPassword}
       NovaInterfaces: {Ref: NovaInterfaces}
       NovaComputeDriver: {Ref: NovaComputeDriver}
+      NovaApiHost: {Ref: NovaApiHost}
       GlanceHost: {Ref: GlanceHost}
+      NovaDSN: {Ref: NovaDSN}
+      QuantumDSN: {Ref: QuantumDSN}
     TemplateURL: {Ref: NovaComputeTemplate}
