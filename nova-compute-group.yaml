@@ -42,19 +42,20 @@ Parameters:
 Resources:
   NovaCompute0:
     Type: AWS::CloudFormation::Stack
-    Parameters:
-      NovaImage: {Ref: NovaImage}
-      InstanceType: {Ref: InstanceType}
-      KeyName: {Ref: KeyName}
-      KeystoneHost: {Ref: KeystoneHost}
-      ServicePassword: {Ref: ServicePassword}
-      QuantumHost: {Ref: QuantumHost}
-      RabbitHost: {Ref: RabbitHost}
-      RabbitPassword: {Ref: RabbitPassword}
-      NovaInterfaces: {Ref: NovaInterfaces}
-      NovaComputeDriver: {Ref: NovaComputeDriver}
-      NovaApiHost: {Ref: NovaApiHost}
-      GlanceHost: {Ref: GlanceHost}
-      NovaDSN: {Ref: NovaDSN}
-      QuantumDSN: {Ref: QuantumDSN}
-    TemplateURL: {Ref: NovaComputeTemplate}
+    Properties:
+      Parameters:
+        NovaImage: {Ref: NovaImage}
+        InstanceType: {Ref: InstanceType}
+        KeyName: {Ref: KeyName}
+        KeystoneHost: {Ref: KeystoneHost}
+        ServicePassword: {Ref: ServicePassword}
+        QuantumHost: {Ref: QuantumHost}
+        RabbitHost: {Ref: RabbitHost}
+        RabbitPassword: {Ref: RabbitPassword}
+        NovaInterfaces: {Ref: NovaInterfaces}
+        NovaComputeDriver: {Ref: NovaComputeDriver}
+        NovaApiHost: {Ref: NovaApiHost}
+        GlanceHost: {Ref: GlanceHost}
+        NovaDSN: {Ref: NovaDSN}
+        QuantumDSN: {Ref: QuantumDSN}
+      TemplateURL: {Ref: NovaComputeTemplate}
