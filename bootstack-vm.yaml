@@ -31,6 +31,7 @@ Resources:
   notcompute:
     Metadata:
       OpenStack::Heat::Stack: {}
+      Openstack::ImageBuilder::Elements: [ boot-stack, heat-cfntools, quantum-network-node ]
       admin-password: unset
       admin-token: unset
       controller-address:
@@ -75,9 +76,11 @@ Resources:
         host: 127.0.0.1
       quantum:
         host: 127.0.0.1
+        metadata_proxy_shared_secret: unset
         ovs_db: mysql://quantum:unset@localhost/ovs_quantum?charset=utf8
         ovs:
           public_interface: eth2
+          fixed_range: 10.0.0.0/8
       rabbit:
         host: 127.0.0.1
         password: guest
