@@ -75,12 +75,17 @@ Resources:
         db: mysql://nova:unset@localhost/nova
         host: 127.0.0.1
       quantum:
+        floatingip_range: 172.17.41.0/24
         host: 127.0.0.1
         metadata_proxy_shared_secret: unset
         ovs_db: mysql://quantum:unset@localhost/ovs_quantum?charset=utf8
         ovs:
           public_interface: eth2
           fixed_range: 10.0.0.0/8
+          tenant_network_type: gre
+          enable_tunneling: 'True'
+          local_ip:
+            Fn::GetAtt: [ notcompute, PrivateIp ]
       rabbit:
         host: 127.0.0.1
         password: guest
