@@ -67,8 +67,6 @@ Resources:
         stack:
           name: {Ref: 'AWS::StackName'}
           region: {Ref: 'AWS::Region'}
-        refresh:
-          - resource: NovaCompute
       nova:
         compute_driver: {Ref: NovaComputeDriver}
         db: {Ref: NovaDSN}
@@ -81,8 +79,7 @@ Resources:
         host: {Ref: QuantumHost}
         ovs_db: {Ref: QuantumDSN}
         ovs:
-          local_ip:
-            Fn::GetAtt: [ NovaCompute, PrivateIp ]
+          local_ip: 127.0.0.1
           tenant_network_type: gre
           network_vlan_ranges: ''
           bridge_mappings: ''
